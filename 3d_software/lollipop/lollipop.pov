@@ -1,3 +1,5 @@
+#include "colors.inc"
+
 camera { location<-2, 3, -7> look_at<0, 2, 0> }
 
 light_source { <2, 10, -3> color rgb<1, 1, 1> }
@@ -23,4 +25,12 @@ union {
 
 #for (i, 0, 100, 4)
     object {Lollipop translate<i, 0, i>}
-#end
+#end      
+
+plane {
+    <0, 1, 0>, 1
+    pigment {
+        checker color Yellow, color Blue   
+        scale 0.5
+    }
+}
