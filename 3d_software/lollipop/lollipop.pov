@@ -1,4 +1,4 @@
-camera { location<-10, 3, -10> look_at<0, 2, 0> }
+camera { location<-2, 3, -7> look_at<0, 2, 0> }
 
 light_source { <2, 10, -3> color rgb<1, 1, 1> }
 light_source { <-2, 3, -3> color rgb<1, 1, 1> }                     
@@ -21,10 +21,6 @@ union {
     }
 }         
 
-Lollipop                             
-
-object { Lollipop translate<-8, 0, 0>}
-object { Lollipop translate<-4, 0, 0>}
-object { Lollipop translate<4, 0, 0>}
-object { Lollipop translate<8, 0, 0>}
-object { Lollipop translate<12, 0, 0>}
+#for (i, 0, 100, 4)
+    object {Lollipop translate<i, 0, i>}
+#end
