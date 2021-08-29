@@ -14,7 +14,8 @@ public class Character {
     private int skill;
     private int defense;
     private int life;
-    private Weapon weapon; //TEM UMA ARMA
+    private Weapon weapon;
+
 
     //Construtores
     public Character(String name, int skill, int defense, int life, Weapon weapon) {
@@ -38,8 +39,8 @@ public class Character {
         String name = names[RANDOM.nextInt(names.length)];
         String surname = surnames[RANDOM.nextInt(surnames.length)];
 
-        int skill = 5 + RANDOM.nextInt(11);
-        int defense = RANDOM.nextInt(5) + 1;
+        int skill = new Roll(1, 4, 1).roll();
+        int defense = new Roll(1, 4, 1).roll();
         int life = (RANDOM.nextInt(10) + RANDOM.nextInt(10) + 1) * 3;
         Roll daggerDamage = new Roll(1, 4, -1);
         Weapon dagger = new Weapon("adaga enferrujada", daggerDamage);
@@ -106,7 +107,7 @@ public class Character {
     public void attack(Character enemy) {
         System.out.printf("%s atacou %s com %s!%n", name, enemy.name, weapon);
         int target = skill - enemy.defense;
-        int roll = new Roll(3, 6).roll();
+        int roll = new Roll(1, 20).roll();
         if (roll <= target) {
             enemy.takeDamage(weapon.roll());
         } else {
